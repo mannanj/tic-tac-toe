@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as GameActions from 'src/app/state/actions/game.actions';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'tic-tac-toe';
 
-  constructor() {}
+  constructor(
+    private store: Store
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.dispatch(GameActions.initializeGame());
+  }
 
 }
