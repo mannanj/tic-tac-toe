@@ -1,6 +1,6 @@
-import { IGame } from 'src/app/models/game.models';
+import { IGameState } from "./reducers/game.reducer";
 
 export interface IAppState {
-  game: IGame;
+  game: IGameState;
   user: any;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as GameActions from 'src/app/state/actions/game.actions';
+import { filter } from 'rxjs/operators';
+import { Players } from './models/game.models';
+import { GameGetter } from './state/facades/game.getter';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,14 @@ import * as GameActions from 'src/app/state/actions/game.actions';
 })
 export class AppComponent implements OnInit {
   title = 'tic-tac-toe';
+  status: string;
 
   constructor(
-    private store: Store
-  ) {}
+    private gameGetter: GameGetter) {}
 
-  ngOnInit() {
-    this.store.dispatch(GameActions.initializeGame());
-  }
 
+    ngOnInit() {
+      this.gameGetter.getNextPlayer$().subscribe(player => this.status = `Next Player: ${player}`);
+      this.gameGetter.getWinner$().pipe(filter(winner => !!winner)).subscribe(winner => this.status = `Winner! ${winner}`);
+    }
 }

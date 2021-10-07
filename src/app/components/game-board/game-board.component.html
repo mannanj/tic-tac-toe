@@ -1,1 +1,17 @@
-<p>game-board works!</p>
+<div id="game-board" *ngIf="gameState">
+    <div class="row-1">
+        <app-square [move]="gameState.moves[0]" (emitMove)="processMove(0)"></app-square>
+        <app-square [move]="gameState.moves[1]" (emitMove)="processMove(1)"></app-square>
+        <app-square [move]="gameState.moves[2]" (emitMove)="processMove(2)"></app-square>
+    </div>
+    <div class="row-2">
+        <app-square [move]="gameState.moves[3]" (emitMove)="processMove(3)"></app-square>
+        <app-square [move]="gameState.moves[4]" (emitMove)="processMove(4)"></app-square>
+        <app-square [move]="gameState.moves[5]" (emitMove)="processMove(5)"></app-square>
+    </div>
+    <div class="row-3">
+        <app-square [move]="gameState.moves[6]" (emitMove)="processMove(6)"></app-square>
+        <app-square [move]="gameState.moves[7]" (emitMove)="processMove(7)"></app-square>
+        <app-square [move]="gameState.moves[8]" (emitMove)="processMove(8)"></app-square>
+    </div>
+</div>

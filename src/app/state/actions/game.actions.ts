@@ -1,20 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import { IGame } from 'src/app/models/game.models';
  
-export const initializeGame = createAction('[Game] Initialize Game');
+export const initializeBoard = createAction('[Game] Initialize Board');
  
-export const setGameTurn = createAction(
-    '[Game] Game Turn',
-    props<{ turn: number }>()
-);
-
-export const setGamePlayer = createAction(
-    '[Game] Game Player',
-    props<{ player: number }>()
-);
-
-
-export const setGameWon = createAction(
-    '[Game] Game Won!',
-    props<{ won: boolean }>()
+export const makeNextMove = createAction(
+    '[Game] Make Next Move',
+    props<{ index: number }>()
 );

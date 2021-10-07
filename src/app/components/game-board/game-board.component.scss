@@ -1,0 +1,14 @@
+#game-board {
+    display: flex;
+    flex-direction: column;
+
+    .row-1 {
+        display: flex;
+    }
+    .row-2 {
+        display: flex;
+    }
+    .row-3 {
+        display: flex;
+    }
+}

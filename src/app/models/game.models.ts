@@ -1,6 +1,8 @@
-export interface IGame {
-    game: any;
-    turn: number;
-    player: number;
-    won: boolean;
+export enum Players {
+    One = 'X',
+    Two = 'O'
+}
+
+export interface IMoveOrder {
+    [key: number]: Players;
 }
