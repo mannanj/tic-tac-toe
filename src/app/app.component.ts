@@ -9,7 +9,6 @@ import { GameGetter } from './state/facades/game.getter';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'tic-tac-toe';
   status: string;
 
   constructor(
@@ -17,7 +16,7 @@ export class AppComponent implements OnInit {
 
 
     ngOnInit() {
-      this.gameGetter.getNextPlayer$().subscribe(player => this.status = `Next Player: ${player}`);
-      this.gameGetter.getWinner$().pipe(filter(winner => !!winner)).subscribe(winner => this.status = `Winner! ${winner}`);
+      this.gameGetter.getNextPlayer$().subscribe((player: Players) => this.status = `Next Player: ${player}`);
+      this.gameGetter.getWinner$().pipe(filter(winner => !!winner)).subscribe((winner: Players) => this.status = `Winner! ${winner}`);
     }
 }
